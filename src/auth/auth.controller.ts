@@ -15,4 +15,14 @@ export class AuthController {
   googleAuthRedirect(@Req() req) {
     return this.authService.googleLogin(req);
   }
+
+  @Get('kakao')
+  @UseGuards(AuthGuard('kakao'))
+  async kakaoAuth(@Req() req) {}
+
+  @Get('kakao/redirect')
+  @UseGuards(AuthGuard('kakao'))
+  kakaoAuthRedirect(@Req() req) {
+    return this.authService.kakaoLogin(req);
+  }
 }
