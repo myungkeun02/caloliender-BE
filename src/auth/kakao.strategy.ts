@@ -26,8 +26,8 @@ export class KakaoStrategy extends PassportStrategy(Strategy, 'kakao') {
     const user = {
       name: profile.displayName,
       email: profile.email,
-
       accessToken,
+      refreshToken,
     };
     done(null, user);
   }

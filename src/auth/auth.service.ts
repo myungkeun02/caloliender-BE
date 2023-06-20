@@ -23,4 +23,15 @@ export class AuthService {
       user: req.user,
     };
   }
+
+  naverLogin(req) {
+    if (!req.user) {
+      return 'No user from naver';
+    }
+
+    return {
+      message: 'User information from naver',
+      user: req.user,
+    };
+  }
 }

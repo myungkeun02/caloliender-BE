@@ -25,4 +25,13 @@ export class AuthController {
   kakaoAuthRedirect(@Req() req) {
     return this.authService.kakaoLogin(req);
   }
+  @Get('naver')
+  @UseGuards(AuthGuard('naver'))
+  async naverAuth(@Req() req) {}
+
+  @Get('naver/redirect')
+  @UseGuards(AuthGuard('naver'))
+  naverAuthRedirect(@Req() req) {
+    return this.authService.naverLogin(req);
+  }
 }
