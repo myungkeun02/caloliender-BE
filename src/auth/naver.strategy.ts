@@ -22,7 +22,7 @@ export class NaverStrategy extends PassportStrategy(Strategy, 'naver') {
     const user = {
       name: profile.displayName,
       email: profile._json.email,
-      password: profile.id,
+      id: profile.id,
       accessToken,
       refreshToken,
     };

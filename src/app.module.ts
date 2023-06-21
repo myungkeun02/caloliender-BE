@@ -8,9 +8,10 @@ import { DiaryModule } from './diary/diary.module';
 import { AuthModule } from './auth/auth.module';
 import { AuthController } from './auth/auth.controller';
 import { AuthService } from './auth/auth.service';
+import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
-  imports: [AuthModule, UserModule, DiaryModule],
+  imports: [AuthModule, UserModule, DiaryModule, TypeOrmModule.forRoot()],
   controllers: [AppController, AuthController, UserController],
   providers: [AppService, UserService, AuthService],
 })
