@@ -4,7 +4,7 @@ import { config } from 'dotenv';
 
 import { Injectable } from '@nestjs/common';
 
-config();
+config(); // .env 파일 로드
 
 @Injectable()
 export class KakaoStrategy extends PassportStrategy(Strategy, 'kakao') {
