@@ -1,12 +1,14 @@
 import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import { InjectEntityManager } from '@nestjs/typeorm';
+import { InjectRepository } from '@nestjs/typeorm'; // InjectRepository 추가
+import { Repository } from 'typeorm'; // Repository 추가
 import { UserEntity } from 'entitys/user.entity';
 
 @Injectable()
 export class AuthService {
   constructor(
-    @InjectEntityManager() private readonly entityManager: UserEntity,
+    @InjectRepository(UserEntity)
+    private readonly userRepository: Repository<UserEntity>, // UserRepository 주입
     private readonly jwtService: JwtService,
   ) {}
 
@@ -37,7 +39,7 @@ export class AuthService {
       maxAge: 86400000,
     });
     return {
-      message: 'User information from kakao',
+      message: 'User information from google',
       user: req.user,
     };
   }
