@@ -26,6 +26,8 @@ export class NaverStrategy extends PassportStrategy(Strategy, 'naver') {
       picture: profile_image,
       accessToken,
       refreshToken,
+      snsId: profile.id,
+      porvider: 'naver',
     };
     done(null, user);
   }

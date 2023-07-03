@@ -1,4 +1,11 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  OneToMany,
+  CreateDateColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 
 import { UserProfileEntity } from './user_profile.entity';
 import { WeightLogEntity } from './weight_log.entity';
@@ -15,10 +22,10 @@ export class UserEntity {
   @Column({ nullable: true })
   email: string;
 
-  @Column({ nullable: true })
+  @CreateDateColumn({ nullable: true })
   created_at: Date;
 
-  @Column({ nullable: true })
+  @UpdateDateColumn({ nullable: true })
   updated_at: Date;
 
   @Column({ nullable: true })

@@ -28,6 +28,8 @@ export class KakaoStrategy extends PassportStrategy(Strategy, 'kakao') {
       email: profile.email,
       accessToken,
       refreshToken,
+      snsId: profile.id,
+      provider: 'kakao',
     };
     done(null, user);
   }
