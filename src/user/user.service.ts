@@ -4,7 +4,6 @@ import { UserEntity } from 'src/entities/user.entity';
 import { UserProfileEntity } from 'src/entities/user_profile.entity';
 import { Repository } from 'typeorm';
 
-
 @Injectable()
 export class UserService {
   constructor(
@@ -25,7 +24,7 @@ export class UserService {
       userProfile.birth_date = profileData.birth_date;
       userProfile.sex = profileData.sex;
       userProfile.start_weight = profileData.start_weight;
-      userProfile.weight = profileData.weight;
+      userProfile.weight = profileData.start_weight;
       userProfile.height = profileData.height;
       return await this.userProfileRepository.save(userProfile);
     } else {

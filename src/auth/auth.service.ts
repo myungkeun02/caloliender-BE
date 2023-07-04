@@ -57,9 +57,6 @@ export class AuthService {
       await this.providerRepository.save(providerEntity);
     } else {
       // 사용자가 이미 존재할 경우 토큰 정보 업데이트(구상중)
-      // existingUser.access_token = user.accessToken;
-      // existingUser.refresh_token = user.refreshToken;
-      // await this.userRepository.save(existingUser);
       console.log('로그인정보가 있습니다');
     }
 
