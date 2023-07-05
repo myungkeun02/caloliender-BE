@@ -13,7 +13,7 @@ export class KakaoStrategy extends PassportStrategy(Strategy, 'kakao') {
       clientID: process.env.KAKAO_CLIENT_ID,
       clientSecret: process.env.KAKAO_CLIENT_SECRET,
       callbackURL: process.env.KAKAO_CALLBACK_URL,
-      scope: ['account_email', 'profile_nickname', 'account_email'],
+      scope: ['account_email', 'profile_nickname', 'profile_image'],
     });
   }
 
@@ -28,8 +28,6 @@ export class KakaoStrategy extends PassportStrategy(Strategy, 'kakao') {
       email: profile.email,
       accessToken,
       refreshToken,
-      snsId: profile.id,
-      provider: 'kakao',
     };
     done(null, user);
   }
