@@ -1,15 +1,10 @@
-import {
-  Entity,
-  PrimaryGeneratedColumn,
-  Column,
-  OneToMany,
-  CreateDateColumn,
-  UpdateDateColumn,
-} from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
 
 import { UserProfileEntity } from './user_profile.entity';
 import { WeightLogEntity } from './weight_log.entity';
 import { ProviderEntity } from './provider.entity';
+import { ExerciseRecordEntity } from './exercise_record.entity';
+import { MealRecordEntity } from './meal_record.entity';
 
 @Entity('user')
 export class UserEntity {
@@ -22,10 +17,10 @@ export class UserEntity {
   @Column({ nullable: true })
   email: string;
 
-  @CreateDateColumn({ nullable: true })
+  @Column({ nullable: true })
   created_at: Date;
 
-  @UpdateDateColumn({ nullable: true })
+  @Column({ nullable: true })
   updated_at: Date;
 
   @Column({ nullable: true })
@@ -51,4 +46,13 @@ export class UserEntity {
 
   @OneToMany(() => WeightLogEntity, (weightLog) => weightLog.user)
   weightLogs: WeightLogEntity[];
+
+  @OneToMany(() => MealRecordEntity, (mealRecord) => mealRecord.user)
+  mealRecords: MealRecordEntity[];
+
+  @OneToMany(
+    () => ExerciseRecordEntity,
+    (exerciseRecord) => exerciseRecord.user,
+  )
+  exerciseRecords: ExerciseRecordEntity[];
 }

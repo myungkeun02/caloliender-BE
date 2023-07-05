@@ -4,11 +4,13 @@ import { AppService } from './app.service';
 import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { RecordModule } from './record/record.module';
 
 @Module({
   imports: [
     AuthModule,
     UserModule,
+    RecordModule,
     TypeOrmModule.forRoot({
       type: 'mariadb',
       host: process.env.DB_HOST,
@@ -19,6 +21,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       entities: ['dist/**/*.entity{.ts,.js}'],
       synchronize: true,
     }),
+    RecordModule,
   ],
   controllers: [AppController],
   providers: [AppService],
